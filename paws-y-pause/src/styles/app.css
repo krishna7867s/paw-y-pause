@@ -49,9 +49,17 @@
   white-space: nowrap;
 }
 
-.brand svg {
-  height: 1.15rem;
-  width: 1.15rem;
+/* Logotipo: es panoramico (16:9), asi que se limita por el alto y nunca por el
+   ancho, para no empujar los botones de seccion fuera de la barra. */
+.brand-logo {
+  display: block;
+  height: 1.85rem;
+  object-fit: contain;
+  width: auto;
+}
+
+.brand-name {
+  white-space: nowrap;
 }
 
 .brand:hover {
@@ -317,16 +325,21 @@ textarea:focus-visible {
   width: 100%;
 }
 
+/* El logotipo va suelto sobre la tarjeta: al ser panoramico (16:9), un circulo
+   de 4 rem lo recortaba. Se limita por el ancho y conserva su proporcion. */
 .auth-logo {
   align-items: center;
-  background: var(--marca-rosa-200);
-  border-radius: 50%;
   display: flex;
-  font-size: 2rem;
-  height: 4rem;
   justify-content: center;
-  margin: 0 auto 1rem;
-  width: 4rem;
+  margin: 0 auto 1.25rem;
+  max-width: 100%;
+}
+
+.auth-logo img {
+  display: block;
+  height: auto;
+  max-width: min(100%, 11rem);
+  width: 100%;
 }
 
 .auth-card h1 {

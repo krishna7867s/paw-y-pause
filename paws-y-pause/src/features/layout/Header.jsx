@@ -19,6 +19,11 @@ const sectionLinks = {
   Admin: [{ to: '/admin', label: 'Administración', icon: 'admin' }],
 }
 
+/* Logotipo de C&R International. Vive en public/ porque lo usan varias
+   pantallas; el nombre va en el alt para que un lector de pantalla sepa de quién
+   es la marca y no lea un adorno. */
+const LOGO = '/cr-logo.webp'
+
 export default function Header() {
   const { user, logout } = useAuth()
   const { increaseFontSize, decreaseFontSize } = useFont()
@@ -30,8 +35,8 @@ export default function Header() {
     <header className="app-header">
       <div className="header-left">
         <Link className="brand" to={user?.role === 'Admin' ? '/admin' : '/inicio'}>
-          <Icon name="paw" />
-          <span>Paws &amp; Pause</span>
+          <img className="brand-logo" src={LOGO} alt="C&amp;R International" width="120" height="68" />
+          <span className="brand-name">Paws &amp; Pause</span>
         </Link>
 
         <nav className="header-nav" aria-label="Secciones">
