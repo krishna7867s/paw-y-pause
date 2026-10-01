@@ -1,0 +1,223 @@
+/* Dialogo de postulacion.
+   Se apoya en las mismas variables de marca que el resto de la aplicacion, asi que
+   hereda sola la paleta del modo de daltonismo activo y la tipografia unica. */
+
+.backdrop {
+  align-items: center;
+  background: rgba(58, 36, 56, 0.45);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 40;
+}
+
+.dialog {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  box-shadow: 0 18px 40px rgba(58, 36, 56, 0.28);
+  color: var(--marca-tinta);
+  max-height: min(92svh, 44rem);
+  max-width: 38rem;
+  overflow-y: auto;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  width: 100%;
+}
+
+.header {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--marca-linea);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+}
+
+.title {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 0 0 0.2rem;
+}
+
+.subtitle {
+  color: var(--marca-celeste-700);
+  font-size: 0.85rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 46ch;
+}
+
+.close {
+  align-items: center;
+  background: transparent;
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  cursor: pointer;
+  display: flex;
+  flex: 0 0 auto;
+  font-size: 1.25rem;
+  height: var(--marca-touch);
+  justify-content: center;
+  width: var(--marca-touch);
+}
+
+.close:hover {
+  background: var(--marca-rosa-200);
+}
+
+.close:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.row {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.label {
+  color: var(--marca-tinta);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.input,
+.textarea {
+  background: var(--marca-fondo);
+  border: 1px solid var(--marca-linea);
+  border-radius: 10px;
+  color: var(--marca-tinta);
+  font: inherit;
+  min-height: var(--marca-touch);
+  padding: 0.55rem 0.7rem;
+  width: 100%;
+}
+
+.textarea {
+  line-height: 1.6;
+  min-height: 6rem;
+  resize: vertical;
+}
+
+.input:focus-visible,
+.textarea:focus-visible,
+.primary:focus-visible,
+.secondary:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.nota {
+  color: var(--marca-celeste-700);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.primary {
+  background: var(--marca-600);
+  border: 2px solid var(--marca-600-profundo);
+  border-radius: 10px;
+  box-shadow: 0 4px 0 var(--marca-lila-700);
+  color: var(--marca-superficie);
+  cursor: pointer;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: var(--marca-touch);
+  padding: 0.6rem 1.3rem;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--marca-600-profundo);
+}
+
+.primary:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid var(--marca-600);
+  border-radius: 10px;
+  color: var(--marca-tinta);
+  cursor: pointer;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  min-height: var(--marca-touch);
+  padding: 0.6rem 1.3rem;
+}
+
+.secondary:hover {
+  background: var(--marca-rosa-200);
+}
+
+.gracias {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0.5rem 0.5rem;
+  text-align: center;
+}
+
+.graciasIcon {
+  color: var(--marca-600);
+  font-size: 2rem;
+  margin: 0;
+}
+
+.graciasTexto {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.graciasNota {
+  color: var(--marca-celeste-700);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin: 0 0 0.5rem;
+  max-width: 40ch;
+}
+
+.estado {
+  color: var(--marca-celeste-700);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin: 0;
+  min-height: 1.3rem;
+}
+
+.estado:empty {
+  display: none;
+}

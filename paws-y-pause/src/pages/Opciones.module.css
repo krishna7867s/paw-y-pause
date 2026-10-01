@@ -1,0 +1,205 @@
+/* Pagina de Opciones: mismos tokens y misma tipografia que el resto de la
+   aplicacion. Las muestras de color de cada modo usan sus propias variables, de
+   modo que muestran la paleta tal y como se vera al elegirla. */
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 0 auto;
+  max-width: 56rem;
+  width: 100%;
+}
+
+.heading {
+  margin-bottom: 0.25rem;
+}
+
+.eyebrow {
+  color: var(--marca-600);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  margin: 0 0 0.4rem;
+  text-transform: uppercase;
+}
+
+.title {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  margin: 0 0 0.6rem;
+}
+
+.lead {
+  color: var(--marca-celeste-700);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 62ch;
+}
+
+.card {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  box-shadow: var(--sombra-suave);
+  padding: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+.cardTitle {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.cardNote {
+  color: var(--marca-celeste-700);
+  font-size: 0.86rem;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+  max-width: 66ch;
+}
+
+.options {
+  display: grid;
+  gap: 0.6rem;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+}
+
+.option {
+  align-items: center;
+  background: var(--marca-fondo);
+  border: 2px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  gap: 0.6rem;
+  min-height: var(--marca-touch);
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.option:hover {
+  background: var(--marca-rosa-200);
+}
+
+/* El modo elegido se marca con fondo, borde y punto lleno: nunca solo con color. */
+.optionActive {
+  background: var(--marca-emblema-300);
+  border-color: var(--marca-600);
+  font-weight: 700;
+}
+
+.option:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.optionMark {
+  color: var(--marca-600);
+  flex: 0 0 auto;
+  font-size: 0.9rem;
+}
+
+.optionWide {
+  grid-column: 1 / -1;
+}
+
+.optionCopy {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.optionLabel {
+  font-size: 0.92rem;
+}
+
+.optionHint {
+  color: var(--marca-celeste-700);
+  font-size: 0.76rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Muestra de cuatro tonos del modo: da una idea de la paleta antes de aplicarla. */
+.swatch {
+  border: 1px solid var(--marca-linea);
+  border-radius: 8px;
+  display: grid;
+  flex: 0 0 auto;
+  grid-template-columns: repeat(2, 1fr);
+  height: 2.1rem;
+  overflow: hidden;
+  width: 2.1rem;
+}
+
+.swatch span:nth-child(1) { background: var(--marca-600); }
+.swatch span:nth-child(2) { background: var(--marca-emblema-300); }
+.swatch span:nth-child(3) { background: var(--marca-celeste-300); }
+.swatch span:nth-child(4) { background: var(--marca-verde-700); }
+
+.swatch-protanopia span:nth-child(1) { background: #a85a00; }
+.swatch-protanopia span:nth-child(2) { background: #f0b96a; }
+.swatch-protanopia span:nth-child(3) { background: #9fc9e8; }
+.swatch-protanopia span:nth-child(4) { background: #2f5f45; }
+
+.swatch-deuteranopia span:nth-child(1) { background: #1f6fa8; }
+.swatch-deuteranopia span:nth-child(2) { background: #7fb8dc; }
+.swatch-deuteranopia span:nth-child(3) { background: #b9d7ea; }
+.swatch-deuteranopia span:nth-child(4) { background: #106b6b; }
+
+.swatch-tritanopia span:nth-child(1) { background: #a3195b; }
+.swatch-tritanopia span:nth-child(2) { background: #e896c0; }
+.swatch-tritanopia span:nth-child(3) { background: #bfe0b4; }
+.swatch-tritanopia span:nth-child(4) { background: #4c6b1c; }
+
+.swatch-acromatopsia span:nth-child(1) { background: #3d3d3d; }
+.swatch-acromatopsia span:nth-child(2) { background: #a8a8a8; }
+.swatch-acromatopsia span:nth-child(3) { background: #d2d2d2; }
+.swatch-acromatopsia span:nth-child(4) { background: #565656; }
+
+.status {
+  color: var(--marca-celeste-700);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 0.9rem 0 0;
+}
+
+.reset {
+  background: transparent;
+  border: 2px solid var(--marca-600);
+  border-radius: 10px;
+  color: var(--marca-tinta);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-top: 0.7rem;
+  min-height: var(--marca-touch);
+  padding: 0.5rem 1.1rem;
+}
+
+.reset:hover {
+  background: var(--marca-rosa-200);
+}
+
+.reset:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .option {
+    transition: none;
+  }
+}

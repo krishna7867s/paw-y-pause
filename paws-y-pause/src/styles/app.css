@@ -1,0 +1,725 @@
+﻿/* --- Carcasa de la aplicacion ----------------------------------------------
+   Fondo perla, tinta ciruela, cero fondos oscuros. Toda la navegacion esta en la
+   barra superior: no hay menu lateral ni barra de regreso, asi que el contenido
+   ocupa el ancho completo y nada queda arrinconado a un lado. */
+
+.app-shell {
+  background: var(--marca-fondo);
+  color: var(--marca-tinta);
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  text-align: left;
+}
+
+/* --- Barra de navegacion -------------------------------------------------- */
+
+.app-header {
+  align-items: center;
+  background: var(--marca-superficie);
+  border-bottom: 1px solid var(--marca-linea);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem 1rem;
+  justify-content: space-between;
+  padding: 0.6rem clamp(0.85rem, 2.5vw, 1.6rem);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-left {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem clamp(0.75rem, 2vw, 1.5rem);
+  min-width: 0;
+}
+
+.brand {
+  align-items: center;
+  color: var(--marca-tinta);
+  display: inline-flex;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.1rem;
+  font-weight: 800;
+  gap: 0.5rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand svg {
+  height: 1.15rem;
+  width: 1.15rem;
+}
+
+.brand:hover {
+  color: var(--marca-600);
+}
+
+.brand:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Botones de seccion: enlaces de ruta con aspecto de boton. El activo se marca
+   con fondo, borde inferior y peso, no solo con color. */
+.header-nav {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.header-nav-link {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  display: inline-flex;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.86rem;
+  font-weight: 600;
+  gap: 0.4rem;
+  min-height: 2.6rem;
+  padding: 0.4rem 0.75rem;
+  text-decoration: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.header-nav-link:hover {
+  background: var(--marca-rosa-200);
+  color: var(--marca-tinta);
+}
+
+.header-nav-link:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.header-nav-link-active {
+  background: var(--marca-emblema-300);
+  border-color: var(--marca-600);
+  color: var(--marca-tinta);
+  font-weight: 800;
+}
+
+.header-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.user-greeting {
+  color: var(--marca-celeste-700);
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-right: 0.25rem;
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Llamada a la accion principal: el boton de "Ãšnete a nosotros". Se distingue por
+   relleno, y el texto esta ahi para que se lea sin depender del tono. */
+.header-cta {
+  align-items: center;
+  background: var(--marca-600);
+  border: 2px solid var(--marca-600-profundo);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--marca-lila-700);
+  color: var(--marca-superficie);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.84rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  min-height: 2.6rem;
+  padding: 0.4rem 1rem;
+  white-space: nowrap;
+}
+
+.header-cta:hover {
+  background: var(--marca-600-profundo);
+}
+
+.header-cta:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.header-text-size {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.header-icon-button {
+  align-items: center;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  cursor: pointer;
+  display: inline-flex;
+  font: inherit;
+  font-size: 0.84rem;
+  font-weight: 700;
+  gap: 0.35rem;
+  justify-content: center;
+  min-height: 2.6rem;
+  min-width: 2.6rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.header-icon-button:hover {
+  background: var(--marca-rosa-200);
+}
+
+.header-icon-button:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.logout-label {
+  white-space: nowrap;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2.25rem) clamp(0.9rem, 3vw, 2.25rem);
+  width: 100%;
+}
+
+/* --- Botones compartidos ---------------------------------------------------
+   Los tres estilos que usan el resto de la aplicacion (login, formularios,
+   paneles). Los botones del navbar ya tienen su propio estilo y no usan esto. */
+
+.button {
+  border: 0;
+  border-radius: var(--marca-radio-chico);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 2.75rem;
+  padding: 0.65rem 1rem;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.button:hover:not(:disabled) {
+  box-shadow: var(--sombra-suave);
+  transform: translateY(-1px);
+}
+
+.button:focus-visible,
+input:focus-visible,
+a:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+/* Un boton que no hace nada debe PARECER que no hace nada: opacidad reducida y
+   cursor de prohibido, para no simular que responde. */
+.button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+  transform: none;
+}
+
+.button-primary {
+  background: var(--marca-600);
+  color: var(--marca-superficie);
+  width: 100%;
+}
+
+.button-secondary {
+  background: var(--marca-celeste-300);
+  color: var(--marca-tinta);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--marca-tinta);
+  min-width: 2.5rem;
+  padding: 0.5rem;
+}
+
+.button-ghost:hover:not(:disabled) {
+  background: var(--marca-rosa-200);
+}
+.app-content {
+  flex: 1;
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* Pantalla de error: la red de seguridad (app/ErrorBoundary) sustituye la
+   pagina en blanco por un mensaje que si se puede leer y dos salidas. */
+.crash-page {
+  align-items: center;
+  background: var(--bg);
+  color: var(--marca-tinta);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.crash-page h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.crash-detail {
+  background: #f6f0f4;
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-error);
+  font-size: 0.85rem;
+  margin: 0;
+  max-width: 40rem;
+  overflow-x: auto;
+  padding: 0.8rem 1rem;
+  text-align: left;
+}
+
+.auth-page {
+  align-items: center;
+  background: var(--marca-fondo);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 1.25rem;
+}
+
+.auth-card {
+  background: var(--blanco-perlado-intenso);
+  border: 1px solid var(--marca-linea-suave);
+  border-radius: calc(var(--marca-radio-chico) * 1.5);
+  box-shadow: var(--sombra-suave);
+  color: var(--marca-tinta);
+  max-width: 28rem;
+  padding: clamp(1.5rem, 5vw, 2.5rem);
+  width: 100%;
+}
+
+.auth-logo {
+  align-items: center;
+  background: var(--marca-rosa-200);
+  border-radius: 50%;
+  display: flex;
+  font-size: 2rem;
+  height: 4rem;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  width: 4rem;
+}
+
+.auth-card h1 {
+  font-size: clamp(1.7rem, 4vw, 2.25rem);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  text-align: center;
+}
+
+.auth-subtitle,
+.auth-switch {
+  color: var(--marca-tinta);
+  line-height: 1.6;
+  text-align: center;
+}
+
+.auth-form {
+  display: grid;
+  gap: 1.15rem;
+  margin-top: 1.75rem;
+}
+
+.form-field {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.form-field label {
+  color: var(--marca-tinta);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.form-field input {
+  background: var(--blanco-perlado);
+  border: 1px solid var(--marca-linea-suave);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.6rem 0.75rem;
+}
+
+/* Mostrar / ocultar contrasena: sirve para detectar el caracter mal tecleado, que
+   es la causa mas comun de un "credenciales incorrectas" con la clave correcta. */
+.form-reveal {
+  background: none;
+  border: 0;
+  color: var(--marca-600);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  justify-self: end;
+  min-height: 2.25rem;
+  padding: 0.2rem 0.35rem;
+  text-decoration: underline;
+}
+
+.form-reveal:hover {
+  color: var(--marca-900);
+}
+
+.form-reveal:focus-visible {
+  border-radius: var(--marca-radio-chico);
+  outline: 3px solid var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.field-error,
+.form-error {
+  color: #9b263a;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+/* Rosa Chicle 600: el rosa antiguo (#ff8fab) sobre blanco no llegaba a 4.5:1. */
+.auth-switch a {
+  color: var(--marca-600);
+  font-weight: 700;
+}
+
+/* Titulo de pagina: mas aire entre el eyebrow, el h1 y el parrafo. */
+.page-heading {
+  margin-bottom: 2rem;
+}
+
+.page-heading h1 {
+  line-height: 1.2;
+  margin: 0.5rem 0 0.9rem;
+}
+
+.page-heading p:last-child {
+  color: var(--marca-tinta);
+  line-height: 1.6;
+  max-width: 62ch;
+}
+
+.home-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Sobretitulos como "TU RINCÃ“N FELIZ" o "TIEMPO DE CALIDAD": Rosa Chicle 600. */
+.eyebrow {
+  color: var(--marca-600);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin: 0 0 0.5rem;
+  text-transform: uppercase;
+}
+
+/* Tarjetas y paneles: Rosa Chicle 300 para los modulos de la persona
+   (Pausas) y Celeste 300 para el panel de administracion, de forma que cada
+   modulo tiene su propio tono de superficie. Los dos son claros y el texto va
+   siempre en Tinta Ciruela. Padding generoso: minimo 24 px. */
+.module-card,
+.chart-card {
+  background: var(--marca-rosa-300);
+  border: 1px solid var(--marca-600);
+  border-radius: var(--marca-radio-chico);
+  box-shadow: var(--sombra-suave);
+  color: var(--marca-tinta);
+  padding: clamp(1.5rem, 3vw, 1.75rem);
+}
+
+/* El panel de administracion usa Celeste 300 en lugar de Rosa 300. La
+   especificidad del selector descendente gana con independencia del orden. */
+.admin-crud-section .module-card,
+.chart-card,
+.metric-card {
+  background: var(--marca-celeste-300);
+  border-color: var(--marca-celeste-700);
+}
+
+.module-card {
+  margin-top: 1.5rem;
+}
+
+.section-heading,
+.admin-crud-section {
+  margin-bottom: 1.5rem;
+}
+
+.section-heading {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.section-heading h2,
+.chart-card h2 {
+  margin: 0.25rem 0 0;
+}
+
+/* Sobre las tarjetas de color el acento se oscurece: el Rosa 600 no llegaba a
+   4.5:1 sobre Rosa 300. Sobre el fondo perla se mantiene el Rosa 600 pedido. */
+.module-card .eyebrow,
+.module-card a,
+.module-card .marca-enlace,
+.chart-card .eyebrow,
+.chart-card a {
+  color: var(--marca-600-profundo);
+}
+
+.status-badge,
+.status-text {
+  color: var(--marca-tinta);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.status-badge {
+  background: var(--marca-rosa-200);
+  border: 1px solid var(--marca-600);
+  border-radius: var(--marca-radio-todo);
+  padding: 0.45rem 0.85rem;
+}
+
+.inline-form {
+  align-items: end;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin-bottom: 1.5rem;
+}
+
+.inline-form .button {
+  width: 100%;
+}
+
+.inline-form select,
+.inline-form input {
+  background: var(--blanco-perlado-intenso);
+  border: 1px solid var(--marca-linea-suave);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  font: inherit;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.data-table-wrapper {
+  overflow-x: auto;
+}
+
+.data-table {
+  border-collapse: collapse;
+  min-width: 42rem;
+  width: 100%;
+}
+
+.data-table th,
+.data-table td {
+  border-bottom: 1px solid var(--marca-linea-suave);
+  line-height: 1.5;
+  padding: 0.9rem 0.5rem;
+  text-align: left;
+}
+
+.data-table th {
+  color: var(--marca-tinta);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
+.table-actions {
+  white-space: nowrap;
+}
+
+.table-actions .button {
+  font-size: 0.85rem;
+}
+
+.success-message {
+  color: #28733e;
+  font-weight: 700;
+}
+
+.pause-list {
+  display: grid;
+  gap: 0.6rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pause-item {
+  align-items: center;
+  background: var(--blanco-perlado-intenso);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  line-height: 1.5;
+  padding: 0.9rem 1.1rem;
+}
+
+.pause-complete {
+  background: var(--verde-manzana-suave);
+}
+
+.metrics-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1.5rem;
+}
+
+.metric-card {
+  align-items: center;
+  background: var(--marca-celeste-300);
+  border: 1px solid var(--marca-celeste-700);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  display: flex;
+  gap: 0.85rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.metric-icon {
+  align-items: center;
+  background: var(--marca-rosa-200);
+  border-radius: 50%;
+  display: flex;
+  font-size: 1.4rem;
+  height: 2.75rem;
+  justify-content: center;
+  width: 2.75rem;
+}
+
+.metric-card p,
+.metric-card strong,
+.metric-card small {
+  display: block;
+}
+
+.metric-card p,
+.metric-card small {
+  color: var(--marca-tinta);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.metric-card strong {
+  color: var(--marca-tinta);
+  font-size: 1.65rem;
+  line-height: 1.2;
+}
+
+.charts-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.chart-container {
+  height: 16rem;
+  margin-top: 1rem;
+}
+
+.sr-only {
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* En movil la barra se apila: marca y Secciones en una fila, acciones en la de
+   abajo. Se mantiene visible en todo momento, sin menu que abrir. */
+@media (max-width: 860px) {
+  .app-header {
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.55rem 0.75rem;
+  }
+
+  .header-left {
+    width: 100%;
+  }
+
+  .header-nav {
+    flex: 1 1 100%;
+    overflow-x: auto;
+    padding-bottom: 0.15rem;
+  }
+
+  .header-nav-link {
+    flex: 0 0 auto;
+  }
+
+  .header-actions {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .user-greeting {
+    display: none;
+  }
+
+  .home-heading {
+    align-items: flex-start;
+  }
+
+  .home-heading img {
+    height: 90px;
+    width: 85px;
+  }
+
+  .inline-form,
+  .metrics-grid,
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pause-item {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .logout-label {
+    display: none;
+  }
+
+  .header-cta span:last-child {
+    display: none;
+  }
+}

@@ -1,0 +1,312 @@
+.overlay {
+  align-items: center;
+  background: rgba(58, 36, 56, 0.55);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 30;
+}
+
+.dialog {
+  background: var(--marca-fondo);
+  border-radius: var(--marca-radio);
+  box-shadow: 0 18px 50px rgba(58, 36, 56, 0.35);
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-texto);
+  max-height: 90svh;
+  max-width: 40rem;
+  overflow-y: auto;
+  padding: clamp(1.25rem, 4vw, 2rem);
+  position: relative;
+  width: 100%;
+}
+
+.dialog h2 {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.close {
+  background: transparent;
+  border: 0;
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  cursor: pointer;
+  font-size: 1.4rem;
+  line-height: 1;
+  min-height: var(--marca-touch);
+  min-width: var(--marca-touch);
+  position: absolute;
+  right: 0.35rem;
+  top: 0.35rem;
+}
+
+.close:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+
+.lede {
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 0 0 1.1rem;
+  padding: 0;
+}
+
+.item {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-left: 6px solid var(--marca-celeste-700);
+  border-radius: var(--marca-radio-chico);
+  line-height: 1.5;
+  padding: 0.75rem 0.9rem;
+}
+
+.item strong {
+  display: block;
+  font-family: var(--marca-fuente-titulo);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.itemNo {
+  border-left-color: var(--marca-miel-700);
+}
+
+.checkbox {
+  align-items: flex-start;
+  display: flex;
+  gap: 0.65rem;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+}
+
+.checkbox input {
+  height: 1.35rem;
+  margin-top: 0.15rem;
+  width: 1.35rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.legal {
+  border-top: 1px solid var(--marca-linea);
+  margin: 1.25rem 0 0;
+  padding-top: 0.75rem;
+}
+
+.legal summary {
+  align-items: center;
+  color: var(--marca-600);
+  cursor: pointer;
+  display: flex;
+  font-weight: 700;
+  min-height: var(--marca-touch);
+}
+
+.legal summary:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+
+.legalText {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  margin-top: 0.5rem;
+  padding: 0.9rem 1rem;
+}
+
+.legalText p {
+  margin: 0 0 0.7rem;
+}
+
+.status {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 0.75rem 0;
+}
+
+.badge {
+  background: #e9f2f5;
+  border-radius: 999px;
+  color: var(--marca-celeste-700);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+}
+
+.badgeText {
+  white-space: nowrap;
+}
+
+.badgeOk {
+  background: #eef4e4;
+  color: var(--marca-verde-700);
+}
+
+.badgeWarn {
+  background: #fbf1dc;
+  color: var(--marca-miel-700);
+}
+
+.stage {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin: 1rem 0;
+}
+
+.mirror {
+  background: #241a22;
+  border-radius: var(--marca-radio);
+  overflow: hidden;
+  position: relative;
+  width: min(100%, 20rem);
+}
+
+.mirror video,
+.mirror canvas {
+  display: block;
+  height: auto;
+  transform: scaleX(-1);
+  width: 100%;
+}
+
+.guide {
+  color: var(--marca-superficie);
+  font-size: 0.8rem;
+  font-weight: 700;
+  left: 0;
+  padding: 0.4rem 0.6rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 0;
+}
+
+.progress {
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  color: var(--marca-tinta);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.45rem 0.9rem;
+}
+
+.progressTrack {
+  background: #eadfe6;
+  border-radius: 999px;
+  height: 0.5rem;
+  overflow: hidden;
+  width: min(100%, 18rem);
+}
+
+.progressFill {
+  background: var(--marca-600);
+  height: 100%;
+  transition: width 120ms linear;
+}
+
+.progressFillOk {
+  background: var(--marca-verde-700);
+}
+
+.hint {
+  line-height: 1.5;
+  margin: 0;
+  min-height: 2.6rem;
+  text-align: center;
+}
+
+.hintOk {
+  color: var(--marca-verde-700);
+  font-weight: 700;
+}
+
+.success {
+  align-items: center;
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.bigEmoji {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Foto de prueba: la imagen que la persona toma como constancia. Se muestra en
+   la pantalla de cierre para que vea que se guardo en su dispositivo, nada mas. */
+.photoProof {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio);
+  margin: 1rem 0 0;
+  padding: 0.75rem;
+}
+
+.photoProof img {
+  border-radius: var(--marca-radio-chico);
+  display: block;
+  max-height: 14rem;
+  object-fit: cover;
+  width: 100%;
+}
+
+.photoProof figcaption {
+  color: var(--marca-celeste-700);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+.record {
+  background: #f6f0f4;
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  line-height: 1.5;
+  margin: 1rem 0 0;
+  padding: 0.75rem 0.9rem;
+}
+
+.recordTitle {
+  color: var(--marca-celeste-700);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill {
+    transition: none;
+  }
+}

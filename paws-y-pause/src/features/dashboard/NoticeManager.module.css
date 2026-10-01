@@ -1,0 +1,84 @@
+.note {
+  color: var(--marca-celeste-700);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+
+.empty {
+  color: var(--marca-tinta);
+  font-size: 0.9rem;
+  margin: 0.75rem 0 0;
+}
+
+.list {
+  display: grid;
+  gap: 0.75rem;
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.item {
+  align-items: center;
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-linea);
+  border-radius: var(--marca-radio-chico);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  padding: 0.9rem 1rem;
+}
+
+.itemBody {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+.itemBody strong {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-weight: 600;
+}
+
+.itemText {
+  color: var(--marca-tinta);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0.25rem 0 0;
+}
+
+.itemMeta {
+  color: var(--marca-celeste-700);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  margin: 0.3rem 0 0;
+}
+
+.itemActions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.badgeActive,
+.badgeClosed {
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.3rem 0.75rem;
+  white-space: nowrap;
+}
+
+.badgeActive {
+  background: #eef4e4;
+  color: var(--marca-verde-700);
+}
+
+.badgeClosed {
+  background: var(--marca-fondo);
+  color: var(--marca-tinta);
+}

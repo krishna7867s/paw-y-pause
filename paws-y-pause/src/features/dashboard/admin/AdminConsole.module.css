@@ -1,0 +1,452 @@
+/* Consola administrativa "Tama-Care DS Enterprise Console".
+
+   El contenido ocupa todo el ancho disponible: antes la consola se metia dentro de
+   una columna de 15 rem que a su vez vivia dentro del menu lateral de la app, y el
+   panel quedaba arrinconado a la derecha con un hueco vacio al lado. Ahora las
+   secciones son una fila de botones arriba del contenido, el area de trabajo toma
+   todo el ancho y no queda ningun espacio muerto.
+
+   El tono es ejecutivo y sobrio, con la paleta clara de la marca (fondo perla,
+   acentos Rosa 600 y Celeste, texto en Tinta Ciruela): sin fondos oscuros y sin que
+   el estado dependa solo del color. */
+
+.shell {
+  --panel-borde: var(--marca-linea);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.9rem, 2vw, 1.4rem);
+  margin: 0 auto;
+  max-width: 90rem;
+  width: 100%;
+}
+
+/* --- Cabecera y navegacion de secciones ------------------------------------ */
+
+.topbar {
+  align-items: center;
+  border-bottom: 1px solid var(--panel-borde);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  justify-content: space-between;
+  padding-bottom: 0.75rem;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brandName {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin: 0;
+}
+
+.brandMeta {
+  color: var(--marca-celeste-700);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  margin: 0.1rem 0 0;
+  text-transform: uppercase;
+}
+
+/* Fila de secciones: botones horizontales, sin columna lateral. */
+.nav {
+  display: flex;
+  flex: 1 1 100%;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.navButton {
+  align-items: center;
+  background: var(--marca-superficie);
+  border: 1px solid transparent;
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-tinta);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font: inherit;
+  gap: 0.45rem;
+  min-height: var(--marca-touch);
+  padding: 0.5rem 0.85rem;
+  text-align: left;
+  transition: background 140ms ease, border-color 140ms ease;
+}
+
+.navButton:hover {
+  background: var(--marca-rosa-200);
+}
+
+.navButton:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+
+/* La seccion activa se marca con fondo, borde y peso: nunca solo con color. */
+.navActive {
+  background: var(--marca-emblema-300);
+  border-color: var(--marca-600);
+  font-weight: 800;
+}
+
+.navIcon {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.navText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.navLabel {
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.88rem;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.navHint {
+  color: var(--marca-celeste-700);
+  font-size: 0.72rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+/* --- Area de trabajo ------------------------------------------------------- */
+
+.workspace {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.workspaceHeader {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1rem;
+}
+
+.workspaceTitle {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: clamp(1.25rem, 2.6vw, 1.75rem);
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+.workspaceHint {
+  color: var(--marca-celeste-700);
+  font-size: 0.84rem;
+  margin: 0;
+}
+
+/* Aviso permanente de privacidad: permanece en cualquier seccion de la consola. */
+.privacyStrip {
+  background: var(--crema-suave);
+  border: 1px solid var(--marca-miel-700);
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-miel-700);
+  font-size: 0.78rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0;
+  width: 100%;
+}
+
+.card {
+  background: var(--marca-superficie);
+  border: 1px solid var(--panel-borde);
+  border-radius: var(--marca-radio-chico);
+  box-shadow: var(--sombra-suave);
+  padding: clamp(1rem, 2vw, 1.4rem);
+}
+
+.cardTitle {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem;
+}
+
+.cardNote {
+  color: var(--marca-celeste-700);
+  font-size: 0.82rem;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 78ch;
+}
+
+.grid {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
+}
+
+.kpi {
+  background: var(--marca-fondo);
+  border: 1px solid var(--panel-borde);
+  border-radius: var(--marca-radio-chico);
+  padding: 0.75rem 0.85rem;
+}
+
+.kpiLabel {
+  color: var(--marca-celeste-700);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.kpiValue {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0.2rem 0 0;
+}
+
+.kpiHint {
+  color: var(--marca-celeste-700);
+  font-size: 0.72rem;
+  margin: 0.1rem 0 0;
+}
+
+.barList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.barRow {
+  align-items: center;
+  display: grid;
+  gap: 0.2rem 0.8rem;
+  grid-template-columns: minmax(6rem, 11rem) minmax(0, 1fr) auto;
+}
+
+.barName {
+  color: var(--marca-tinta);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.barTrack {
+  background: var(--marca-emblema-300);
+  border-radius: 999px;
+  height: 0.7rem;
+  overflow: hidden;
+}
+
+.barFill {
+  background: linear-gradient(90deg, var(--marca-600), var(--marca-lila-700));
+  border-radius: inherit;
+  display: block;
+  height: 100%;
+}
+
+.barValue {
+  color: var(--marca-tinta);
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.85rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 34rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.fieldLabel {
+  color: var(--marca-tinta);
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.fieldHint {
+  color: var(--marca-celeste-700);
+  font-size: 0.74rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.field input,
+.field select {
+  background: var(--marca-superficie);
+  border: 2px solid var(--marca-linea);
+  border-radius: 10px;
+  color: var(--marca-tinta);
+  font: inherit;
+  min-height: var(--marca-touch);
+  padding: 0.5rem 0.7rem;
+}
+
+.field input:focus-visible,
+.field select:focus-visible,
+.action:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.action {
+  background: var(--marca-600);
+  border: 2px solid var(--marca-600-profundo);
+  border-radius: 10px;
+  box-shadow: 0 4px 0 var(--marca-lila-700);
+  color: var(--marca-superficie);
+  cursor: pointer;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.88rem;
+  font-weight: 700;
+  min-height: var(--marca-touch);
+  padding: 0.5rem 1.1rem;
+}
+
+.action:hover:not(:disabled) {
+  background: var(--marca-600-profundo);
+}
+
+.action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.actionGhost {
+  background: var(--marca-superficie);
+  border: 2px solid var(--marca-600);
+  color: var(--marca-tinta);
+}
+
+.status {
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin: 0;
+  padding: 0.55rem 0.85rem;
+}
+
+.statusOk {
+  background: var(--verde-manzana-suave);
+  border: 1px solid var(--marca-verde-700);
+  color: var(--marca-verde-700);
+}
+
+.statusError {
+  background: var(--rosa-chicle-suave);
+  border: 1px solid var(--marca-error);
+  color: var(--marca-error);
+}
+
+.statusNeutral {
+  background: var(--marca-fondo);
+  border: 1px solid var(--marca-linea);
+  color: var(--marca-celeste-700);
+}
+
+.empty {
+  color: var(--marca-celeste-700);
+  font-size: 0.85rem;
+  font-style: italic;
+  margin: 0;
+}
+
+.fact {
+  color: var(--marca-celeste-700);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  margin: 0.7rem 0 0;
+}
+
+table {
+  border-collapse: collapse;
+  min-width: 30rem;
+  width: 100%;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--marca-linea-suave);
+  padding: 0.65rem 0.5rem;
+  text-align: left;
+}
+
+th {
+  color: var(--marca-tinta);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+td {
+  color: var(--marca-tinta);
+  font-size: 0.85rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+/* En pantallas estrechas las secciones se desplazan en una fila en vez de
+   apilarse: una columna obligaria a hacer scroll para llegar al contenido. */
+@media (max-width: 900px) {
+  .nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.35rem;
+  }
+
+  .navButton {
+    flex: 0 0 auto;
+  }
+
+  .navHint {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navButton {
+    transition: none;
+  }
+}

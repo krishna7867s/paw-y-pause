@@ -1,0 +1,142 @@
+/* Paletas de accesibilidad visual.
+
+   Cada modo redefine las mismas variables de marca que usa el resto de la
+   aplicación, así que no hay que tocar ni un solo componente: cambia el color y
+   cambia en todas partes. Se declara sobre `html[data-vision=...]`, el atributo
+   que fija VisionContext.
+
+   Regla que respetan las cuatro paletas: el estado nunca depende solo del tono.
+   wherever hay un activo, un error o un aviso, la forma (borde, peso, icono) y el
+   texto siguen distinguiéndolos aunque los dos colores se parezcan.
+
+   Los valores se eligieron para mantener el contraste AA del texto de la marca
+   (Tinta Ciruela) sobre cada superficie clara. */
+
+html[data-vision='protanopia'] {
+  /* El rojo desaparece: los acentos cálidos se vuelven ámbar y azul profundo,
+     que bajo protanopía siguen siendo tonos bien separados. */
+  --marca-600: #a85a00;
+  --marca-600-profundo: #7a4300;
+  --marca-emblema-300: #f0b96a;
+  --marca-rosa-200: #ffe0b8;
+  --marca-rosa-300: #f3c489;
+  --marca-celeste-300: #9fc9e8;
+  --marca-lila-700: #2c3d70;
+  --marca-celeste-700: #14496b;
+  --marca-verde-700: #2f5f45;
+  --marca-miel-700: #6d4a06;
+  --marca-linea: #e5d3bd;
+  --marca-linea-suave: #f0e3d2;
+  --rosa-chicle: #f0b96a;
+  --rosa-chicle-fuerte: #d99a3c;
+  --rosa-chicle-suave: #ffeed6;
+  --verde-manzana: #b9d9c4;
+  --verde-manzana-fuerte: #8fbf9f;
+  --verde-manzana-suave: #e4f1e9;
+  --celeste: #9fc9e8;
+  --celeste-fuerte: #5f9cc9;
+  --celeste-suave: #dcecf7;
+  --crema: #f7e3c0;
+  --crema-suave: #fbf1de;
+}
+
+html[data-vision='deuteranopia'] {
+  /* Verde y rosa se confunden: el acento pasa a azul y el "verde" de los estados
+     positivos a turquesa, que bajo deuteranopía sí se separa del rosa. */
+  --marca-600: #1f6fa8;
+  --marca-600-profundo: #144f7a;
+  --marca-emblema-300: #7fb8dc;
+  --marca-rosa-200: #d6e9f6;
+  --marca-rosa-300: #a8cfe8;
+  --marca-celeste-300: #b9d7ea;
+  --marca-lila-700: #33406e;
+  --marca-celeste-700: #1a4f6d;
+  --marca-verde-700: #106b6b;
+  --marca-miel-700: #6b4f14;
+  --marca-linea: #d3e0e8;
+  --marca-linea-suave: #e6eef3;
+  --rosa-chicle: #7fb8dc;
+  --rosa-chicle-fuerte: #4f95c2;
+  --rosa-chicle-suave: #e2f0f9;
+  --verde-manzana: #a8ded4;
+  --verde-manzana-fuerte: #74c2b4;
+  --verde-manzana-suave: #dff3ef;
+  --celeste: #b9d7ea;
+  --celeste-fuerte: #7fadc9;
+  --celeste-suave: #e6f1f7;
+  --crema: #e9edf0;
+  --crema-suave: #f3f6f8;
+}
+
+html[data-vision='tritanopia'] {
+  /* El azul y el verde se mezclan: el acento se va a magenta y el celeste se
+     vuelve verde medio, que es donde el ojo separa mejor en esta deficiencia. */
+  --marca-600: #a3195b;
+  --marca-600-profundo: #7a1044;
+  --marca-emblema-300: #e896c0;
+  --marca-rosa-200: #fadcee;
+  --marca-rosa-300: #f0b3d2;
+  --marca-celeste-300: #bfe0b4;
+  --marca-lila-700: #5c3a5e;
+  --marca-celeste-700: #3d6329;
+  --marca-verde-700: #4c6b1c;
+  --marca-miel-700: #6d5310;
+  --marca-linea: #e6d3de;
+  --marca-linea-suave: #f2e5ec;
+  --rosa-chicle: #e896c0;
+  --rosa-chicle-fuerte: #d1739f;
+  --rosa-chicle-suave: #fbe4f0;
+  --verde-manzana: #cfe6b8;
+  --verde-manzana-fuerte: #a9ca88;
+  --verde-manzana-suave: #ecf6e0;
+  --celeste: #bfe0b4;
+  --celeste-fuerte: #85b471;
+  --celeste-suave: #e8f4e0;
+  --crema: #f6e9c8;
+  --crema-suave: #fbf4e4;
+}
+
+html[data-vision='acromatopsia'] {
+  /* Sin color. La separación la dan la luminancia (cada superficie contra el
+     texto mantiene al menos 7:1), el borde y el peso. Los acentos son grises
+     distintos, nunca el mismo gris. */
+  --marca-600: #3d3d3d;
+  --marca-600-profundo: #242424;
+  --marca-emblema-300: #a8a8a8;
+  --marca-rosa-200: #dcdcdc;
+  --marca-rosa-300: #c4c4c4;
+  --marca-celeste-300: #d2d2d2;
+  --marca-lila-700: #1f1f1f;
+  --marca-celeste-700: #4a4a4a;
+  --marca-verde-700: #565656;
+  --marca-miel-700: #6b6b6b;
+  --marca-linea: #c8c8c8;
+  --marca-linea-suave: #e0e0e0;
+  --rosa-chicle: #a8a8a8;
+  --rosa-chicle-fuerte: #8a8a8a;
+  --rosa-chicle-suave: #e6e6e6;
+  --verde-manzana: #dcdcdc;
+  --verde-manzana-fuerte: #b4b4b4;
+  --verde-manzana-suave: #f0f0f0;
+  --celeste: #d2d2d2;
+  --celeste-fuerte: #a8a8a8;
+  --celeste-suave: #e9e9e9;
+  --crema: #e4e4e4;
+  --crema-suave: #f2f2f2;
+  --tinta: #2e2e2e;
+  --tinta-fuerte: #1a1a1a;
+  --blanco-perlado: #f4f4f4;
+  --blanco-perlado-intenso: #ffffff;
+  --marca-fondo: #f2f2f2;
+  --marca-superficie: #ffffff;
+}
+
+/* En acromatopsia los bordes pesan mas: es lo que sigue separando una tarjeta de
+   su fondo cuando el color ya no ayuda. */
+html[data-vision='acromatopsia'] .module-card,
+html[data-vision='acromatopsia'] .chart-card,
+html[data-vision='acromatopsia'] .metric-card,
+html[data-vision='acromatopsia'] .app-header,
+html[data-vision='acromatopsia'] .auth-card {
+  border-width: 2px;
+}

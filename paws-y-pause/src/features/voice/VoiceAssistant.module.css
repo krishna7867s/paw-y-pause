@@ -1,0 +1,47 @@
+/* Boton flotante del asistente de voz. Accesible por teclado, area tactil de
+   44 px y foco visible segun el Libro de Marca v2.0. */
+.toggle {
+  align-items: center;
+  background: var(--marca-superficie);
+  border: 2px solid var(--marca-600);
+  border-radius: 999px;
+  box-shadow: 0 4px 0 var(--marca-lila-700), 0 8px 18px rgba(58, 36, 56, 0.2);
+  color: var(--marca-600);
+  cursor: pointer;
+  display: flex;
+  font: inherit;
+  font-family: var(--marca-fuente-titulo);
+  font-weight: 600;
+  gap: 0.4rem;
+  min-height: var(--marca-touch);
+  min-width: var(--marca-touch);
+  padding: 0.5rem 0.95rem;
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.5rem);
+  bottom: clamp(1rem, 3vw, 1.5rem);
+  z-index: 70;
+}
+
+.toggle:hover {
+  background: var(--marca-fondo);
+}
+
+/* Encendido: el estado se apoya en texto e icono, nunca solo en el color. */
+.toggleOn {
+  background: var(--marca-600);
+  color: var(--marca-superficie);
+}
+
+.toggleOn:hover {
+  background: var(--marca-lila-700);
+}
+
+.toggle:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+
+.badge {
+  font-size: 0.8rem;
+  white-space: nowrap;
+}

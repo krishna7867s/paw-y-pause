@@ -1,0 +1,119 @@
+:root {
+  --font-scale: 1;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --text: var(--tinta);
+  --text-h: var(--tinta-fuerte);
+  --bg: var(--blanco-perlado);
+  --border: var(--marca-linea-suave);
+  --code-bg: var(--celeste-suave);
+  --accent: var(--marca-600);
+  --accent-bg: var(--marca-rosa-200);
+  --accent-border: var(--rosa-chicle);
+  --social-bg: rgba(253, 240, 213, 0.6);
+  --shadow: var(--sombra-suave);
+
+  /* Las tres familias son la misma: la tipografia vive en theme.css y aqui solo
+     se le pasa el nombre, para que ningun modulo pueda montar por su cuenta una
+     pila distinta. */
+  --sans: var(--marca-fuente-texto);
+  --heading: var(--marca-fuente-titulo);
+  --mono: var(--marca-fuente-mono);
+
+  /* Texto sobre fondos claros en Tinta Ciruela, nunca blanco. */
+  --tinta: #4a3348;
+  --tinta-fuerte: #3a2438;
+
+  /* Blanco Perla para el fondo general y la barra de navegacion. El blanco intenso
+   se reserva para superficies de formulario (tarjeta de ingreso, campos). */
+  --blanco-perlado: #f7f1f0;
+  --blanco-perlado-intenso: #ffffff;
+
+  /* Interlineado del cuerpo de texto: 1.6, por encima del 1.5 minimo pedido y
+     del 1.45 que dejaba los parrafos pegados en pantallas de Pausas. */
+  font: calc(18px * var(--font-scale))/1.6 var(--sans);
+  letter-spacing: 0.18px;
+  color-scheme: light;
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* La paleta oscura se elimino a proposito: el Libro de Marca v2.0 solo define
+   una gama clara. Antes, `html.dark` (que se activaba si el sistema venia en
+   modo oscuro) dejaba la barra de navegacion en gris casi negro (#2c2429),
+   fuera de la identidad de la marca. La app ahora es siempre clara. */
+
+body {
+  margin: 0;
+}
+
+/* El contenedor ocupa todo el ancho y alinea a la izquierda. Antes media 1126 px
+   y centraba el texto, de modo que en pantallas anchas el contenido quedaba
+   arrinconado en el medio y cada panel se Veia corrido hacia la derecha. */
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-height: 100svh;
+  margin: 0 auto;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+h1,
+h2 {
+  font-family: var(--heading);
+  font-weight: 500;
+  color: var(--text-h);
+}
+
+h1 {
+  font-size: 56px;
+  letter-spacing: -1.68px;
+  line-height: 1.18;
+  margin: 0.75rem 0 1.25rem;
+  @media (max-width: 1024px) {
+    font-size: 36px;
+    margin: 0.5rem 0 1rem;
+  }
+}
+h2 {
+  font-size: 24px;
+  line-height: 1.3;
+  letter-spacing: -0.24px;
+  margin: 0 0 1rem;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+p {
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+code,
+.counter {
+  font-family: var(--mono);
+  display: inline-flex;
+  border-radius: 4px;
+  color: var(--text-h);
+}
+
+code {
+  font-size: 15px;
+  line-height: 135%;
+  padding: 4px 8px;
+  background: var(--code-bg);
+}

@@ -1,0 +1,162 @@
+:root {
+  --rosa-chicle: #ffb6c1;
+  --rosa-chicle-fuerte: #ff8fab;
+  --rosa-chicle-suave: #ffe3e8;
+
+  --blanco-perlado: #fdfbf6;
+  --blanco-perlado-intenso: #ffffff;
+
+  --crema: #fdf0d5;
+  --crema-suave: #fef7e6;
+
+  --celeste: #aee1ff;
+  --celeste-fuerte: #6cc4f7;
+  --celeste-suave: #d8efff;
+
+  --verde-manzana: #c8f59b;
+  --verde-manzana-fuerte: #9edb6a;
+  --verde-manzana-suave: #e6fbd0;
+
+  --tinta: #5a4a52;
+  --tinta-fuerte: #3a2e36;
+
+  --radio-suave: 12px;
+  --radio-todo: 999px;
+  --sombra-suave: 0 6px 18px rgba(90, 74, 82, 0.12);
+  --sombra-calcada: 0 4px 0 rgba(90, 74, 82, 0.15);
+}
+
+/* Libro de Marca v2.0
+   Se aplican solo a las pantallas nuevas (página corporativa, login unificado,
+   consentimiento y verificación de estiramiento). Los módulos existentes
+   conservan sus variables originales. */
+:root {
+  --marca-fondo: #f7f1f0;
+  --marca-superficie: #ffffff;
+  --marca-emblema-300: #f5a3dd;
+  --marca-600: #b01e86;
+  --marca-tinta: #3a2438;
+
+  /* Superficies y estados de la carcasa de la app (barra de navegacion, tarjetas).
+     Rosa 200 marca el elemento activo del menú; Rosa 300 y Celeste 300 alternan
+     como fondo de panel segun el modulo. Todos son tonos claros: el texto va
+     siempre en tinta ciruela encima de ellos. */
+  --marca-rosa-200: #fbd3ee;
+  --marca-rosa-300: #f5a3dd;
+  --marca-celeste-300: #acd5e5;
+  --marca-linea-suave: #efdfe8;
+
+  /* Rosa 600 sobre Rosa 300 solo daba 3.31:1. Sobre las tarjetas de color se
+     usa este rosa mas profundo, que si llega a 5.45:1 y mantiene el acento de
+     la marca sin comprometer el contraste AA. */
+  --marca-600-profundo: #7a0f5c;
+  --marca-lila-700: #3f3f8c;
+  --marca-celeste-700: #10627e;
+  --marca-verde-700: #3e6b18;
+  --marca-miel-700: #7a5c12;
+  --marca-error: #b3261e;
+  --marca-linea: #e7d9e1;
+
+  /* Tipografia unica de la aplicacion.
+     Una sola familia para todo (Plus Jakarta Sans) con un segundo eje variable
+     (wght) para marcar jerarquia. Antes coexistian Fredoka para titulos, Nunito
+     para texto y la pila del sistema para todo lo demas, de modo que una misma
+     pantalla mezclaba tres familias distintas. Ahora --marca-fuente-titulo y
+     --marca-fuente-texto son la misma: los componentes que ya usaban uno de los
+     dos tokens siguen funcionando y todos se ven igual. */
+  --marca-fuente-titulo: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --marca-fuente-texto: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+  --marca-fuente-mono: 'IBM Plex Mono', ui-monospace, Consolas, monospace;
+
+  --marca-radio: 24px;
+  --marca-radio-chico: 14px;
+  --marca-radio-todo: 999px;
+  --marca-sombra-boton: 0 4px 0 var(--marca-lila-700);
+  --marca-sombra-boton-activo: 0 1px 0 var(--marca-lila-700);
+  --marca-foco: 3px solid var(--marca-lila-700);
+  --marca-foco-separacion: 2px;
+  --marca-touch: 44px;
+}
+
+/* El unico rojo de la marca (#B3261E) se reserva para errores de formulario.
+   Se aplica solo a las superficies nuevas: los modulos existentes conservan
+   su estilo original. */
+.marca-dialog .form-error,
+.auth-page .form-error {
+  color: var(--marca-error);
+}
+
+/* Todo lo nuevo respeta areas tactiles minimas de 44 x 44 px. */
+.marca-boton {
+  align-items: center;
+  background: var(--marca-600);
+  border: 0;
+  border-radius: var(--marca-radio);
+  box-shadow: var(--marca-sombra-boton);
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 1rem;
+  font-weight: 600;
+  gap: 0.5rem;
+  justify-content: center;
+  min-height: var(--marca-touch);
+  min-width: var(--marca-touch);
+  padding: 0.65rem 1.4rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.marca-boton:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.marca-boton:active:not(:disabled) {
+  box-shadow: var(--marca-sombra-boton-activo);
+  transform: translateY(3px);
+}
+
+.marca-boton:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.marca-boton-secundario {
+  background: var(--marca-fondo);
+  box-shadow: 0 4px 0 var(--marca-lila-700);
+  color: var(--marca-600);
+}
+
+.marca-boton-linea {
+  background: transparent;
+  box-shadow: none;
+  color: var(--marca-600);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.marca-boton:focus-visible,
+.marca-enlace:focus-visible,
+.marca-campo:focus-visible,
+.marca-casilla:focus-visible,
+.marca-tarjeta:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+
+.marca-enlace {
+  color: var(--marca-600);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marca-boton {
+    transition: none;
+  }
+
+  .marca-boton:hover:not(:disabled),
+  .marca-boton:active:not(:disabled) {
+    transform: none;
+  }
+}

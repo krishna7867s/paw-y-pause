@@ -1,0 +1,195 @@
+/* Estado del servidor en la pantalla de ingreso. Verde: se puede entrar.
+   Rojo: el API esta apagado y el rechazo no tiene nada que ver con la clave. */
+.apiStatus {
+  border-radius: 14px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin: 0 0 0.6rem;
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+}
+
+.apiStatus[data-state='online'] {
+  background: #eef4e4;
+  border: 1px solid #cfe0b8;
+  color: var(--marca-verde-700);
+}
+
+.apiStatus[data-state='offline'] {
+  background: #fdeceb;
+  border: 1px solid #f2c4c0;
+  color: var(--marca-error);
+}
+
+.apiStatus[data-state='checking'] {
+  background: #e9f2f5;
+  border: 1px solid #c7dde7;
+  color: var(--marca-celeste-700);
+}
+
+/* Bloque de cuentas de prueba: solo en desarrollo, nunca en el build de entrega. */
+.devBox {
+  background: #eef4e4;
+  border: 1px solid #cfe0b8;
+  border-radius: 14px;
+  margin-top: 0.4rem;
+  padding: 0.9rem 1rem 1rem;
+  text-align: left;
+}
+
+.devTitle {
+  color: var(--marca-verde-700);
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.devHint {
+  color: var(--marca-tinta);
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 0 0 0.7rem;
+}
+
+.devButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.devButton {
+  background: var(--marca-superficie);
+  border: 1px solid var(--marca-verde-700);
+  border-radius: 999px;
+  color: var(--marca-verde-700);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: 44px;
+  padding: 0.5rem 1.1rem;
+}
+
+.devButton:hover {
+  background: var(--marca-verde-700);
+  color: var(--marca-superficie);
+}
+
+.devButton:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: var(--marca-foco-separacion);
+}
+.hint {
+  color: var(--marca-celeste-700);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.demoNote {
+  background: #f4f8ee;
+  border: 1px solid #cfe2bd;
+  border-radius: var(--marca-radio-chico);
+  color: var(--marca-verde-700);
+  font-size: 0.88rem;
+  line-height: 1.45;
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+}
+
+.demoCode {
+  margin: 0 0 0.4rem;
+}
+
+/* El codigo se muestra grande y espaciado: se copia de un vistazo, sin
+   confundir un 0 con una O ni un 1 con un 7. */
+.demoCode strong {
+  background: #ffffff;
+  border: 1px solid #cfe2bd;
+  border-radius: 6px;
+  font-family: ui-monospace, 'Courier New', monospace;
+  font-size: 1.35rem;
+  letter-spacing: 0.28em;
+  padding: 0.15rem 0.4rem 0.15rem 0.68rem;
+}
+
+.demoTimer {
+  color: var(--marca-miel-700);
+  font-size: 0.82rem;
+  margin: 0 0 0.55rem;
+}
+
+.strength {
+  align-items: flex-start;
+  color: var(--marca-miel-700);
+  display: flex;
+  font-size: 0.85rem;
+  gap: 0.4rem;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.strength[data-level='3'],
+.strength[data-level='4'] {
+  color: var(--marca-verde-700);
+}
+
+.linkButton {
+  background: none;
+  border: 0;
+  color: var(--marca-600);
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  min-height: var(--marca-touch);
+  padding: 0;
+  text-decoration: underline;
+}
+
+/* Llamada a "Únete a nosotros" al pie de la tarjeta de ingreso. */
+.joinUsBox {
+  align-items: center;
+  border-top: 1px dashed var(--marca-linea);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  justify-content: space-between;
+  margin-top: 1.4rem;
+  padding-top: 1rem;
+}
+
+.joinUsText {
+  color: var(--marca-tinta);
+  font-size: 0.86rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.joinUsButton {
+  align-items: center;
+  background: var(--marca-600);
+  border: 2px solid var(--marca-600-profundo);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--marca-lila-700);
+  color: var(--marca-superficie);
+  cursor: pointer;
+  display: inline-flex;
+  font-family: var(--marca-fuente-titulo);
+  font-size: 0.84rem;
+  font-weight: 700;
+  gap: 0.4rem;
+  min-height: var(--marca-touch);
+  padding: 0.45rem 1.1rem;
+}
+
+.joinUsButton:hover {
+  background: var(--marca-600-profundo);
+}
+
+.joinUsButton:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}
+
+.linkButton:focus-visible {
+  outline: var(--marca-foco);
+  outline-offset: 2px;
+}

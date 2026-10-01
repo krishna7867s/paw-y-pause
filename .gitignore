@@ -1,0 +1,11 @@
+# Raíz del workspace: aquí solo viven carpetas de proyecto, no dependencias.
+node_modules/
+package-lock.json
+package.json
+
+# Datos de la aplicación. db.json guarda las cuentas con su passwordHash y su
+# totpSecret, así que es de la máquina, nunca del repositorio.
+paws-y-pause/db.json
+
+# Configuración local del agente y sus worktrees.
+.kilo/worktrees/
